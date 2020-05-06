@@ -2,6 +2,8 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## About
 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/9bbc0643d26b4063a7440623e62d5d53)](https://app.codacy.com/gh/BuildForSDG/team-227-frontend?utm_source=github.com&utm_medium=referral&utm_content=BuildForSDG/team-227-frontend&utm_campaign=Badge_Grade_Settings)
+
 What is this project about. Ok to enrich here or the section above it with an image. 
 
 Once this repo has been setup on Codacy by the TTL, replace the above badge with the actual one from the Codacy dashboard, and add the code coverage badge as well. This is mandatory
