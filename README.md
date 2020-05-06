@@ -21,7 +21,6 @@ Talk about what problem this solves, what SDG(s) and SGD targets it addresses an
 ## Usage
 How would someone use what you have built, include URLs to the deployed app, service e.t.c when you have it setup
 
-
 ## Available Scripts
 
 In the project directory, you can run:
@@ -59,6 +58,11 @@ Instead, it will copy all the configuration files and the transitive dependencie
 
 You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
+### `npm run lint`
+
+**Note: this operation need to install eslint like this: npm install eslint**
+
+To standardize code syntax and uniform compliance with best pratices, this command allows us in development mode to check the status of our code. If you are on VSCode, you can fly by installing the eslint extension. This will automatically read your .eslintrc file and indicate the errors if there are problems in the code.
 
 ## Authors
 
