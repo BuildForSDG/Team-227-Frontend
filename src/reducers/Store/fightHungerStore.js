@@ -6,6 +6,11 @@
 
 export const initialStore = {
   User: [],
+  currentUser: {
+    token: ''
+  },
   Domain: [],
-  isAuth: false
+  isAuth: false,
+  loading: false,
+  error: {}
 };
