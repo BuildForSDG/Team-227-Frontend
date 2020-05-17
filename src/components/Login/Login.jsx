@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { makeStyles } from '@material-ui/core/styles';
 import {
   Grid,
@@ -18,6 +19,7 @@ import Fade from 'react-reveal/Fade';
 import pic1 from '../../assets/a1.jpg';
 import pic2 from '../../assets/a2.jpg';
 import pic3 from '../../assets/a3.png';
+import ErrorMessage from '../Toasts/ErrorMessage.jsx';
 
 const pictures = [pic1, pic2, pic3];
 
@@ -65,14 +67,27 @@ const Copyright = () => (
   </Typography>
 );
 
-const Login = () => {
+const Login = ({
+  isAuth, loading, error, onSubmitForm
+}) => {
   const classes = useStyles();
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const data = {
+      phoneNumber: e.target[0].value,
+      password: e.target[1].value
+    };
+    if (!isAuth) {
+      onSubmitForm(data);
+    }
+  };
 
   return (
     <Grid container component="main" className={classes.root}>
       <CssBaseline />
-        <Grid item xs={false} sm={4} md={7} className={classes.image} />
+      <Grid item xs={false} sm={4} md={7} className={classes.image} />
       <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
+        {error.message && <ErrorMessage error={error.message} />}
         <Fade bottom>
           <div className={classes.paper}>
             <Avatar className={classes.avatar}>
@@ -81,7 +96,7 @@ const Login = () => {
             <Typography component="h1" variant="h5">
               Sign in
             </Typography>
-            <form className={classes.form} noValidate>
+            <form className={classes.form} noValidate onSubmit={(e) => handleSubmit(e)}>
               <TextField
                 maring="normal"
                 required
@@ -105,7 +120,7 @@ const Login = () => {
                 autoComplete="current-password"
               />
               <FormControlLabel control={<Checkbox value="remember" color="primary" />} label="Remember me" />
-              <Button type="submit" fullWidth variant="contained" color="primary" className={classes.submit}>
+              <Button type="submit" fullWidth variant="contained" disabled={loading} color="primary" className={classes.submit}>
                 Sign In
               </Button>
               <Grid item xs>
@@ -127,6 +142,13 @@ const Login = () => {
       </Grid>
     </Grid>
   );
+};
+
+Login.propTypes = {
+  isAuth: PropTypes.bool.isRequired,
+  loading: PropTypes.bool.isRequired,
+  error: PropTypes.object.isRequired,
+  onSubmitForm: PropTypes.func.isRequired
 };
 
 export default Login;
