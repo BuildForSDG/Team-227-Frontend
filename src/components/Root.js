@@ -3,11 +3,11 @@ import PropTypes from 'prop-types';
 import { Provider } from 'react-redux';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Header from './Header/Header.jsx';
-import Auth from './Pages/Auth/Auth';
+import AuthService from '../containers/AuthService/AuthService';
 
 /**
  * Router Component
- * @constant Root
+ * @func Root
  * @prop store
  */
 const Root = ({ store }) => (
@@ -15,7 +15,7 @@ const Root = ({ store }) => (
     <Router>
       <Switch>
         <Route exact path="/" component={Header} />
-        <Route path="/sign-in" component={Auth} />
+        <Route path="/sign-in" component={AuthService} />
       </Switch>
     </Router>
   </Provider>
