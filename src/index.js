@@ -1,7 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import thunk from 'redux-thunk';
+import ThunkMiddleware from 'redux-thunk';
 import { createStore, applyMiddleware } from 'redux';
 import Root from './components/Root';
 import * as serviceWorker from './serviceWorker';
@@ -9,7 +8,7 @@ import rootReducers from './reducers/index';
 
 const store = createStore(
   rootReducers,
-  applyMiddleware(thunk)
+  applyMiddleware(ThunkMiddleware)
 );
 
 ReactDOM.render(
