@@ -1,10 +1,10 @@
 import { combineReducers } from 'redux';
-import { initialStore } from './Store/fightHungerStore';
+import authReducer from './authReducer';
 
 /**
  * @constant rootReducers
- * @description The central store of app
+ * @description Combine all reducers of app
  */
-const rootReducers = combineReducers({ initialStore });
+const rootReducers = combineReducers({ authReducer });
 
 export default rootReducers;
