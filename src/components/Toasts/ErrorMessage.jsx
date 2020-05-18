@@ -15,7 +15,7 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-export default function ErrorMessage({ error }) {
+export default function ErrorMessage({ error, clearError }) {
   const classes = useStyles();
   const [open, setOpen] = React.useState(true);
 
@@ -30,6 +30,7 @@ export default function ErrorMessage({ error }) {
               color="inherit"
               size="small"
               onClick={() => {
+                clearError();
                 setOpen(false);
               }}
             >
@@ -45,5 +46,6 @@ export default function ErrorMessage({ error }) {
 }
 
 ErrorMessage.propTypes = {
-  error: PropTypes.string.isRequired
+  error: PropTypes.string.isRequired,
+  clearError: PropTypes.func.isRequired
 };
