@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { makeStyles } from '@material-ui/core/styles';
+import { blue } from '@material-ui/core/colors';
 import {
   Grid,
   Avatar,
@@ -12,7 +13,8 @@ import {
   Link,
   Paper,
   Box,
-  Typography
+  Typography,
+  CircularProgress
 } from '@material-ui/core';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Fade from 'react-reveal/Fade';
@@ -53,6 +55,19 @@ const useStyles = makeStyles((theme) => ({
   },
   submit: {
     margin: theme.spacing(3, 0, 2)
+  },
+  wrapper: {
+    margin: theme.spacing(1),
+    position: 'relative'
+  },
+
+  buttonProgress: {
+    color: blue[500],
+    position: 'absolute',
+    top: '50%',
+    left: '50%',
+    marginTop: -12,
+    marginLeft: -12
   }
 }));
 
@@ -71,15 +86,26 @@ const Login = ({
   isAuth, loading, error, onSubmitForm
 }) => {
   const classes = useStyles();
+
+  /**
+   * SUBMIT FORM FOR AUTHENTICATED USER
+   * @func
+   * @param {Event} e
+   */
   const handleSubmit = (e) => {
     e.preventDefault();
     const data = {
-      phoneNumber: e.target[0].value,
-      password: e.target[1].value
+      phoneNumber: e.target[0].value.trim(),
+      password: e.target[2].value.trim()
     };
     if (!isAuth) {
       onSubmitForm(data);
+      document.getElementById('password').value = '';
     }
+  };
+
+  const clearError = () => {
+    delete error.message;
   };
 
   return (
@@ -87,7 +113,7 @@ const Login = ({
       <CssBaseline />
       <Grid item xs={false} sm={4} md={7} className={classes.image} />
       <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
-        {error.message && <ErrorMessage error={error.message} />}
+        {error.message && <ErrorMessage error={error.message} clearError={clearError} />}
         <Fade bottom>
           <div className={classes.paper}>
             <Avatar className={classes.avatar}>
@@ -120,9 +146,19 @@ const Login = ({
                 autoComplete="current-password"
               />
               <FormControlLabel control={<Checkbox value="remember" color="primary" />} label="Remember me" />
-              <Button type="submit" fullWidth variant="contained" disabled={loading} color="primary" className={classes.submit}>
-                Sign In
-              </Button>
+              <div className={classes.wrapper}>
+                <Button
+                  type="submit"
+                  fullWidth
+                  variant="contained"
+                  disabled={loading}
+                  color="primary"
+                  className={classes.submit}
+                >
+                  Sign In
+                </Button>
+                {loading && <CircularProgress size={24} className={classes.buttonProgress} />}
+              </div>
               <Grid item xs>
                 <Link href="#" variant="body2">
                   Forgot password?
