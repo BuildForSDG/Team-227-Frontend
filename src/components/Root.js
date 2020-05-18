@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Provider } from 'react-redux';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Header from './Header/Header.jsx';
-import AuthService from '../containers/AuthService/AuthService';
+import AuthService from '../containers/AuthService/AuthService.jsx';
 
 /**
  * Router Component
