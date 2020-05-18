@@ -46,9 +46,20 @@ export const authUserError = (error) => ({
  * @param {Object} {}
  * @prop {String} phoneNumber
  * @prop {String} password
+ * @returns Function<dispatch>
  */
 export const fetchAuthUser = ({ phoneNumber, password }) => (dispatch) => {
   dispatch(authUser());
+  if (phoneNumber === '' || password === '') {
+    const error = new Error('The fields is empty !');
+    return dispatch(authUserError(error));
+  }
+  const isNumber = /[0-9]/;
+  if (!phoneNumber.match(isNumber)) {
+    const error = Error('Phone number is invalid !');
+    return dispatch(authUserError(error));
+  }
+
   return fetch(`${APIConfig.API_URI}/auth`, {
     method: 'POST',
     body: {
@@ -63,12 +74,6 @@ export const fetchAuthUser = ({ phoneNumber, password }) => (dispatch) => {
       }
       return response.json();
     })
-    .then((token) => {
-      dispatch(authUserSuccess(token));
-    })
-    .catch((error) => {
-      // eslint-disable-next-line no-console
-      console.error(error);
-      dispatch(authUserError(error));
-    });
+    .then((token) => dispatch(authUserSuccess(token)))
+    .catch((error) => dispatch(authUserError(error)));
 };
