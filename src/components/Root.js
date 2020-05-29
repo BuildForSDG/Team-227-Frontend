@@ -4,6 +4,7 @@ import { Provider } from 'react-redux';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Header from './Header/Header.jsx';
 import AuthService from '../containers/AuthService/AuthService.jsx';
+import RegisterService from '../containers/RegisterService/RegisterService.jsx';
 
 /**
  * Router Component
@@ -16,6 +17,7 @@ const Root = ({ store }) => (
       <Switch>
         <Route exact path="/" component={Header} />
         <Route path="/sign-in" component={AuthService} />
+        <Route path="/sign-up" component={RegisterService} />
       </Switch>
     </Router>
   </Provider>
