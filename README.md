@@ -9,9 +9,7 @@ Once this repo has been setup on Codacy by the TTL, replace the above badge with
 This is a simple python starter repo template for setting up your project. The setup contains:
 
 - install: poetry via pip. poetry is a dependecy manager.
-
 - poetry: configuration in pyproject.toml
-
 - flake8: for linting and formatting
 
 ## Why
