@@ -1,4 +1,4 @@
-This project was bootstrapped with Create React App https://github.com/facebook/create-react-app.
+This project was bootstrapped with Create React App [https://github.com/facebook/create-react-app].
 
 ## About
 
@@ -7,12 +7,9 @@ What is this project about. Ok to enrich here or the section above it with an im
 Once this repo has been setup on Codacy by the TTL, replace the above badge with the actual one from the Codacy dashboard, and add the code coverage badge as well. This is mandatory
 
 This is a simple python starter repo template for setting up your project. The setup contains:
-
-  - install: poetry via pip. poetry is a dependecy manager.
-
-  - poetry: configuration in pyproject.toml
-
-  - flake8: for linting and formatting
+-  install: poetry via pip. poetry is a dependecy manager.
+-  poetry: configuration in pyproject.toml
+-  flake8: for linting and formatting
 
 ## Why
 
@@ -30,7 +27,7 @@ In the project directory, you can run:
 
 Runs the app in the development mode.<br />
 
-Open http://localhost:3000 to view it in the browser.
+Open [http://localhost:3000] to view it in the browser.
 
 The page will reload if you make edits.<br />
 
@@ -40,7 +37,7 @@ You will also see any lint errors in the console.
 
 Launches the test runner in the interactive watch mode.<br />
 
-See the section about running tests https://facebook.github.io/create-react-app/docs/running-tests for more information.
+See the section about running tests [https://facebook.github.io/create-react-app/docs/running-tests] for more information.
 
 ### `npm run build`
 
@@ -52,7 +49,7 @@ The build is minified and the filenames include the hashes.<br />
 
 Your app is ready to be deployed!
 
-See the section about deployment https://facebook.github.io/create-react-app/docs/deployment for more information.
+See the section about deployment [https://facebook.github.io/create-react-app/docs/deployment] for more information.
 
 ### `npm run eject`
 
@@ -97,30 +94,30 @@ MIT
 
 ## Learn More
 
-You can learn more in the Create React App documentation https://facebook.github.io/create-react-app/docs/getting-started.
+You can learn more in the Create React App documentation [https://facebook.github.io/create-react-app/docs/getting-started].
 
-To learn React, check out the React documentation https://reactjs.org/.
+To learn React, check out the React documentation [https://reactjs.org/].
 
 ### Code Splitting
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting]
 
 ### Analyzing the Bundle Size
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size]
 
 ### Making a Progressive Web App
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app]
 
 ### Advanced Configuration
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
+This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration]
 
 ### Deployment
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
+This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment]
 
 ### `npm run build` fails to minify
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify]
