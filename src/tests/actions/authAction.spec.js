@@ -34,7 +34,7 @@ describe('Thunk auth', () => {
   });
   it('should return success request', () => {
     const dataTest = {
-      phoneNumber: 697040511,
+      phoneNumber: '697040511',
       password: 'qwertyKeyboard'
     };
     const successMock = jest.fn(() => fetchAuthUser(dataTest));
