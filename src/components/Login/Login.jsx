@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { makeStyles } from '@material-ui/core/styles';
 import { blue } from '@material-ui/core/colors';
+import { Link } from 'react-router-dom';
 import {
   Grid,
   Avatar,
@@ -10,7 +11,7 @@ import {
   TextField,
   FormControlLabel,
   Checkbox,
-  Link,
+  Link as LinkReload,
   Paper,
   Box,
   Typography,
@@ -21,7 +22,7 @@ import Fade from 'react-reveal/Fade';
 import pic1 from '../../assets/a1.jpg';
 import pic2 from '../../assets/a2.jpg';
 import pic3 from '../../assets/a3.png';
-import ErrorMessage from '../Toasts/ErrorMessage.jsx';
+import ToastMessage from '../Toasts/ToastMessage.jsx';
 
 const pictures = [pic1, pic2, pic3];
 
@@ -68,24 +69,49 @@ const useStyles = makeStyles((theme) => ({
     left: '50%',
     marginTop: -12,
     marginLeft: -12
+  },
+  link: {
+    textDecoration: 'none',
+    color: '#3f51b5',
+    fontSize: '0.875rem',
+    fontWeight: 400,
+    '&:hover': {
+      textDecoration: 'underline'
+    },
+    lineHeight: 1.43,
+    letterSpacing: '0.01071em',
+    fontFamily: '"Roboto", "Helvetica", "Arial", sans-serif'
+  },
+  linkBottom: {
+    color: 'rgba(0, 0, 0, 0.57)',
+    marginTop: '40px',
+    textDecoration: 'none',
+    fontSize: '0.875rem',
+    fontWeight: 400,
+    lineHeight: 1.43,
+    letterSpacing: '0.01071em',
+    fontFamily: '"Roboto", "Helvetica", "Arial", sans-serif',
+    '&:hover': {
+      textDecoration: 'underline'
+    }
   }
 }));
-
-const Copyright = () => (
-  <Typography variant="body2" color="textSecondary" align="center">
-    <Link color="inherit" href="https://buildforsdg.andela.com">
-      #BuildForSDG2020 Facebook Andela
-    </Link>{' '}
-    <br />
-    {'Copyright '} &copy; {new Date().getFullYear()}
-    {'.'}
-  </Typography>
-);
 
 const Login = ({
   isAuth, loading, error, onSubmitForm
 }) => {
   const classes = useStyles();
+
+  const Copyright = () => (
+    <Typography variant="body2" color="textSecondary" align="center">
+      <Link className={classes.linkBottom} to="https://buildforsdg.andela.com">
+        #BuildForSDG2020 Facebook Andela
+      </Link>{' '}
+      <br />
+      {'Copyright '} &copy; {new Date().getFullYear()}
+      {'.'}
+    </Typography>
+  );
 
   /**
    * SUBMIT FORM FOR AUTHENTICATED USER
@@ -98,13 +124,13 @@ const Login = ({
       phoneNumber: e.target[0].value.trim(),
       password: e.target[2].value.trim()
     };
+    const even = e.target;
     if (!isAuth) {
-      onSubmitForm(data);
-      document.getElementById('password').value = '';
+      onSubmitForm(data, even);
     }
   };
 
-  const clearError = () => {
+  const clearMessage = () => {
     delete error.message;
   };
 
@@ -113,7 +139,7 @@ const Login = ({
       <CssBaseline />
       <Grid item xs={false} sm={4} md={7} className={classes.image} />
       <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
-        {error.message && <ErrorMessage error={error.message} clearError={clearError} />}
+        {error.message && <ToastMessage type="error" message={error.message} clearMessage={clearMessage} />}
         <Fade bottom>
           <div className={classes.paper}>
             <Avatar className={classes.avatar}>
@@ -131,7 +157,6 @@ const Login = ({
                 label="Phone Number"
                 name="phone_number"
                 autoComplete="tel"
-                autoFocus
                 variant="outlined"
               />
               <TextField
@@ -160,12 +185,12 @@ const Login = ({
                 {loading && <CircularProgress size={24} className={classes.buttonProgress} />}
               </div>
               <Grid item xs>
-                <Link href="#" variant="body2">
+                <LinkReload href="#" variant="body2">
                   Forgot password?
-                </Link>
+                </LinkReload>
               </Grid>
               <Grid item>
-                <Link href="/sign-up" variant="body2">
+                <Link to="/sign-up" className={classes.link}>
                   {"Don't have an account ? Sign Up"}
                 </Link>
               </Grid>
