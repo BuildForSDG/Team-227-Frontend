@@ -46,9 +46,10 @@ export const authUserError = (error) => ({
  * @param {Object} {}
  * @prop {String} phoneNumber
  * @prop {String} password
+ * @param {Event} even
  * @returns Function<dispatch>
  */
-export const fetchAuthUser = ({ phoneNumber, password }) => (dispatch) => {
+export const fetchAuthUser = ({ phoneNumber, password }, even) => (dispatch) => {
   dispatch(authUser());
   if (phoneNumber === '' || password === '') {
     const error = new Error('The fields is empty !');
@@ -72,6 +73,7 @@ export const fetchAuthUser = ({ phoneNumber, password }) => (dispatch) => {
       if (!response.ok) {
         throw new Error('Error - 401 Unauthorized');
       }
+      even.reset();
       return response.json();
     })
     .then((token) => dispatch(authUserSuccess(token)))
