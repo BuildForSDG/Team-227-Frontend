@@ -32,4 +32,13 @@ describe('Thunk auth', () => {
     errorFunction();
     expect(errorFunction).toHaveReturned();
   });
+  it('should return success request', () => {
+    const dataTest = {
+      phoneNumber: 697040511,
+      password: 'qwertyKeyboard'
+    };
+    const successMock = jest.fn(() => fetchAuthUser(dataTest));
+    successMock();
+    expect(successMock).toHaveReturned();
+  });
 });
