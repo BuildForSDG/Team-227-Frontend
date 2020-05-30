@@ -32,7 +32,7 @@ const SplitButton = () => {
     setSelectedIndex(index);
     setOpen(false);
   };
-  const domainPratice = domains[selectedIndex];
+
   const handleToggle = () => {
     setOpen((prevOpen) => !prevOpen);
   };
@@ -46,7 +46,7 @@ const SplitButton = () => {
   return (
     <div>
       <ButtonGroup color="inherit" ref={anchorRef} aria-label="domains">
-        <Button>{domainPratice}</Button>
+        <Button>{domains[selectedIndex]}</Button>
         <Button
           color="inherit"
           size="small"
