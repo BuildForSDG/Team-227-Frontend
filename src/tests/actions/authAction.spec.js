@@ -1,3 +1,5 @@
+/* eslint no-undef: "error" */
+
 import { fetchAuthUser, authUserError, authUserSuccess } from '../../actions/authAction';
 import * as types from '../../constants/authActionTypes';
 

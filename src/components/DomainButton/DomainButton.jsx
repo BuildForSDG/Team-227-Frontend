@@ -27,8 +27,6 @@ const SplitButton = () => {
   const anchorRef = useRef(null);
   const [selectedIndex, setSelectedIndex] = useState(0);
 
-  const handleClick = () => domains[selectedIndex];
-
   const handleMenuItemClick = (event, index) => {
     setSelectedIndex(index);
     setOpen(false);
@@ -47,12 +45,12 @@ const SplitButton = () => {
   return (
     <div>
       <ButtonGroup color="inherit" ref={anchorRef} aria-label="domains">
-        <Button conClick={handleClick}>{domains[selectedIndex]}</Button>
+        <Button>{domains[selectedIndex]}</Button>
         <Button
           color="inherit"
           size="small"
-          aria-controls={open ? 'split-button-menu' : undefined}
-          aria-expanded={open ? 'true' : undefined}
+          aria-controls={open ? 'split-button-menu' : ''}
+          aria-expanded={open ? 'true' : ''}
           aria-label="select domain"
           aria-haspopup="menu"
           onClick={handleToggle}
@@ -60,7 +58,7 @@ const SplitButton = () => {
           <ArrowDropDownIcon />
         </Button>
       </ButtonGroup>
-      <Popper open={open} anchorEl={anchorRef.current} role={undefined} transition disablePortal>
+      <Popper open={open} anchorEl={anchorRef.current} transition disablePortal>
         {({ TransitionProps, placement }) => (
           <Grow
             {...TransitionProps}

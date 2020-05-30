@@ -253,7 +253,7 @@ SignUp.propTypes = {
   isAuth: PropTypes.bool.isRequired,
   loading: PropTypes.bool.isRequired,
   error: PropTypes.object.isRequired,
-  success: PropTypes.string.isRequired,
+  success: PropTypes.object.isRequired,
   onRegister: PropTypes.func.isRequired
 };
 
