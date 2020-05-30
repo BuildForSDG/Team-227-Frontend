@@ -4,25 +4,26 @@ import {
 } from '@material-ui/core';
 import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
 
-const domains = [
-  'All Domains',
-  'Production',
-  'Inputs',
-  'Food Safety',
-  'Trade',
-  'Food Balance',
-  'Population',
-  'Emission-Agriculture',
-  'Macro-Statistics',
-  'Investment',
-  'Emissions-Land Use',
-  'Agri-Environmental Indicators',
-  'ASTI R&D Indicators',
-  'Prices',
-  'Forestry'
-];
 
 const SplitButton = () => {
+  const domains = [
+    'All Domains',
+    'Production',
+    'Inputs',
+    'Food Safety',
+    'Trade',
+    'Food Balance',
+    'Population',
+    'Emission-Agriculture',
+    'Macro-Statistics',
+    'Investment',
+    'Emissions-Land Use',
+    'Agri-Environmental Indicators',
+    'ASTI R&D Indicators',
+    'Prices',
+    'Forestry'
+  ];
+
   const [open, setOpen] = useState(false);
   const anchorRef = useRef(null);
   const [selectedIndex, setSelectedIndex] = useState(0);
@@ -31,7 +32,7 @@ const SplitButton = () => {
     setSelectedIndex(index);
     setOpen(false);
   };
-
+  const domainPratice = domains[selectedIndex];
   const handleToggle = () => {
     setOpen((prevOpen) => !prevOpen);
   };
@@ -45,7 +46,7 @@ const SplitButton = () => {
   return (
     <div>
       <ButtonGroup color="inherit" ref={anchorRef} aria-label="domains">
-        <Button>{domains[selectedIndex]}</Button>
+        <Button>{domainPratice}</Button>
         <Button
           color="inherit"
           size="small"

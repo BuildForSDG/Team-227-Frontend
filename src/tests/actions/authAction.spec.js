@@ -1,5 +1,6 @@
+// eslint-disable-next-line no-redeclare
+/* global jest */
 /* eslint no-undef: "error" */
-
 import { fetchAuthUser, authUserError, authUserSuccess } from '../../actions/authAction';
 import * as types from '../../constants/authActionTypes';
 
