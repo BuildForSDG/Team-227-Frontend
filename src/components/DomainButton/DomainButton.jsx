@@ -4,7 +4,9 @@ import {
 } from '@material-ui/core';
 import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
 
-
+/**
+ * DOMAIN BUTTON PANEL
+ */
 const SplitButton = () => {
   const domains = [
     'All Domains',
